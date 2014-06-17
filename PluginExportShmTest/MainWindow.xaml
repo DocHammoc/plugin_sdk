@@ -1,0 +1,20 @@
+﻿<Window x:Class="PluginExportShmTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Aquasuite Shared Memory Plugin Test" Height="300" Width="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Test" Click="Button_Click"  Margin="5" Padding="15,3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock Margin="70,0,10,0" Text="Shared Memory Filename" VerticalAlignment="Center" />
+        <TextBox x:Name="filename_edit" Grid.Column="1" Text="test_filename" FontSize="16" VerticalAlignment="Center" />
+        <RichTextBox x:Name="xml_data" Grid.Row="1" Grid.ColumnSpan="2"/>
+        
+    </Grid>
+</Window>

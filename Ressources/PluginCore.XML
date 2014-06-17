@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PluginCore</name>
+    </assembly>
+    <members>
+        <member name="T:AquaComputer.Plugin.IDataImportPlugin">
+            <summary>
+            Aquasuite Export Plugin Interface
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.IDataImportPlugin.start_instance">
+            <summary>
+            called when the plugin is initialized
+            from the host process
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.IDataImportPlugin.stop_instance">
+            <summary>
+            called when the plugin is stopped
+            from the host process
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.IDataImportPlugin.worker">
+            <summary>
+            is called cyclic from the service before 
+            new_data_available is checked and get_data is called  
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.IDataImportPlugin.get_data">
+            <summary>
+            is called cyclic from the service        
+            </summary>
+            <returns>List with all sensor data</returns>
+        </member>
+        <member name="P:AquaComputer.Plugin.IDataImportPlugin.info">
+            <summary>
+            info item with plugin general informations
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.IDataImportPlugin.unique_plugin_identifier">
+            <summary>
+            plugin identifier to identify this plugin as data source
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.IDataImportPlugin.new_data_available">
+            <summary>
+            indicate when new or updated data are available
+            </summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.ILogDataExportPlugin">
+            <summary>
+            Aquasuite Export Plugin Interface
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.ILogDataExportPlugin.start_instance">
+            <summary>
+            called when the plugin is initialized
+            from the host process
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.ILogDataExportPlugin.stop_instance">
+            <summary>
+            called when the plugin is stopped
+            from the host process
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.ILogDataExportPlugin.setup_plugin(System.String,System.String)">
+            <summary>
+            is called after start_instance
+            </summary>
+            <param name="name">parameter filename from host</param>
+            <param name="path">parameter path from host</param>
+        </member>
+        <member name="M:AquaComputer.Plugin.ILogDataExportPlugin.add_log_data(System.Collections.Generic.List{AquaComputer.Plugin.LogDataSet})">
+            <summary>
+            is called cyclic with the given interval and
+            provide the new added log data
+            </summary>
+            <param name="data">log data items</param>
+        </member>
+        <member name="P:AquaComputer.Plugin.ILogDataExportPlugin.info">
+            <summary>
+            info item with plugin general informations
+            </summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.LogDataSet">
+            <summary>
+            LogDataSet, represet an data connection with the current data
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.LogDataSet.time">
+            <summary>
+            Data set time
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.LogDataSet.t">
+            <summary>
+            Current time
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.LogDataSet.value">
+            <summary>
+            current value
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.LogDataSet.name">
+            <summary>
+            value name
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.LogDataSet.valueType">
+            <summary>
+            type of value
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.LogDataSet.device">
+            <summary>
+            device source
+            </summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.PluginInfo">
+            <summary>
+            Contains informations about a Plugin
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.PluginInfo.Name">
+            <summary>
+            Plugin Name (displayed in the aquasuite)
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.PluginInfo.Version">
+            <summary>
+            Plugin version string
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.PluginInfo.DescriptionDE">
+            <summary>
+            A detailed german plugin description
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.PluginInfo.DescriptionEN">
+            <summary>
+            A detailed english plugin description
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.PluginInfo.UseFilename">
+            <summary>
+            when the plugin need the filename property = true
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.PluginInfo.UsePath">
+            <summary>
+            when the plugin need the path property = true
+            </summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.SensorNode">
+            <summary>
+            Is a Sensor Value
+            </summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.SensorNodeBase">
+            <summary>
+            Sensor Node
+            Repersent a sensor value or sensor group node with children
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.SensorNodeBase.#ctor">
+            <summary>
+            init
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.SensorNodeBase.GetSensors">
+            <summary>
+            Return a flat list with all sensor nodes in the current tree
+            </summary>
+            <returns>List with all sensors</returns>
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.is_sensor">
+            <summary>
+            true when the value is a sensor value, otherwise this is only a 
+            node to a sensor value
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.source_id">
+            <summary>
+            source_id
+            source id name
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.name">
+            <summary>
+            Node or sensor name ti display in ui
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.idx">
+            <summary>
+            sensor index
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.identifier">
+            <summary>
+            sensor or path identifier to build the correct data connection to the sensor
+            this value identify the sensor, olny normal characters allowed, a-z and 0-9!
+            each idetifier is unique per plugin
+            </summary>        
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.unit">
+            <summary>
+            sensor unit type
+            describe the actual unit
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.range">
+            <summary>
+            range of actual value
+            when value is scaled in Kilo, Mega...
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.time_scale">
+            <summary>
+            time scale
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.children">
+            <summary>
+            child nodes
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.sensor_value">
+            <summary>
+            value from actual sensor
+            the sensor value is set to nan when the last write is older than SENSOR_UPDATE_TIMEOUT
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.SensorNodeBase.last_update">
+            <summary>
+            date and time of last update
+            </summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.SensorNodeBase.TimeScale">
+            <summary>
+            value time scale
+            </summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.SensorNodeBase.Range">
+            <summary>
+            value range
+            </summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Micro">
+            <summary>10^-6 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Milli">
+            <summary>10^-3 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Cen">
+            <summary>10^1 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Dez">
+            <summary>10^2 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.None">
+            <summary>10^0 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Kilo">
+            <summary>10^3 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Mega">
+            <summary>10^6 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Giga">
+            <summary>10^9 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Terra">
+            <summary>10^12 scale</summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.SensorNodeBase.UnitType">
+            <summary>
+            Value unit
+            </summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Number">
+            <summary> normal number</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Temperature">
+            <summary>Temperature in °C</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.TemperatureDifference">
+            <summary>Temperature difference in °C</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Flow">
+            <summary>Flow rate in l/h</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Volume">
+            <summary>Volume in l</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Power">
+            <summary>Power in Wh</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Work">
+            <summary>Work in W</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Voltage">
+            <summary>Voltage in V</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Current">
+            <summary>Current in A</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.RotationSpeed">
+            <summary>Rotation speed in rotation per minute</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Humidity">
+            <summary>Relative Humidity in %</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Pressure">
+            <summary>Pressure in Bar</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Length">
+            <summary>Lenght in mm</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Percent">
+            <summary>Percent value</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Frequency">
+            <summary>Frequency in Hz</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Resistance">
+            <summary>Resistance in Ohm</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Force">
+            <summary>Force in N</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.State">
+            <summary>State as number</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.DataVolume">
+            <summary>Data volume in Bytes</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.DataSpeed">
+            <summary>Data speed in Bytes per second</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Timespan">
+            <summary>Timespan in seconds</summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.SensorNode.#ctor">
+            <summary>
+            init
+            </summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.SensorGroup">
+            <summary>
+            Group with nodes
+            Contains other Groups or sensor data
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.SensorGroup.#ctor">
+            <summary>
+            init
+            </summary>
+        </member>
+    </members>
+</doc>
