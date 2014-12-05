@@ -1,0 +1,35 @@
+Supported Devices
+#############################################
+mps
+
+Compatible Firmware Versions
+#############################################
+mps firmware: 1005 .. 1008
+
+USB Informations
+#############################################
+
+mps
+#############################################
+Verndor ID: 0x0c70
+Product ID: 0xf002
+Inferface : none
+Data report ID: 2
+Data report Type: Feature Report
+
+Hints
+#############################################
+Endianess: Little Endian
+
+It is not recommed to read more than 1time per second from the device.
+Ideal is a readout interval from 2-5 seconds per read out
+
+Open the HID hande not exclusive.
+recommed is this, this allows multiple access to the device.
+
+this.readHandle = FileIO.CreateFile(
+                      this.path,
+                      FileIO.GENERIC_READ,
+                      FileIO.FILE_SHARE_READ | FileIO.FILE_SHARE_WRITE,
+                      ref security, FileIO.OPEN_EXISTING,
+                      FileIO.FILE_FLAG_OVERLAPPED, 0);

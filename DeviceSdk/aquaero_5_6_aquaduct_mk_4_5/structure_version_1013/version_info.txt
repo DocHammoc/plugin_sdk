@@ -1,0 +1,14 @@
+Supported Devices
+#############################################
+aquaero 5
+aquaero 6
+aquaduct mk4 (360, 720)
+aquaduct mk5 (360, 720)
+
+Compatible Firmware Versions
+#############################################
+structure id: 1013
+aquaero 5,6 firmware: 1036
+
+structure id: 1004
+aquaduct firmware: 1020

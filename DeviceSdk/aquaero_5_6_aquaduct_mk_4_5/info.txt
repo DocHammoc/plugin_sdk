@@ -1,0 +1,70 @@
+#############################################
+SDK Version 1.01 05.12.2014
+#############################################
+
+aquaero 5,6
+#############################################
+Verndor ID: 0x0c70
+Product ID: 0xf001
+Inferface : "mi_02"
+Data report ID: 1
+Data report Type: Input Report
+Data report size: 1038 (windows HidP_GetCaps )
+
+aquaduct mk 4,5
+#############################################
+Verndor ID: 0x0c70
+Product ID: 0xf002
+Inferface : "mi_02"
+Data report ID: 1
+Data report Type: Input Report
+Data report size: 1038 (windows HidP_GetCaps )
+
+Hints
+#############################################
+Endianess: Big Endian
+
+It is not recommed to read more than 1 time per second from the device.
+Ideal is a readout interval 2-5 seconds per read out
+
+Open the HID hande not exclusive!
+recommed is this, this allows multiple access to the device.
+
+this.readHandle = FileIO.CreateFile(
+                      this.path,
+                      FileIO.GENERIC_READ,
+                      FileIO.FILE_SHARE_READ | FileIO.FILE_SHARE_WRITE,
+                      ref security, FileIO.OPEN_EXISTING,
+                      FileIO.FILE_FLAG_OVERLAPPED, 0);
+					  
+Value scaling
+#############################################
+temperatures: int16_t, temperatures in 1/100 °C
+speed signal: int16_t, rpm, 1/min
+current: int16_t, current in mA, 1/1000 A
+percent value: int16_t, percent in 1/100%
+fill level: int16_t, percent in 1/100
+flow: int16_t, in 1/10 l/h
+volatge: int16_t, in 1/100V
+Time: uint32_t, Seconds + 2009.01.01; as UTC time
+pressure: in 1/10 mBar
+water quality, conductivity: in 1/100%, 0% = (bad), 100% = (good)
+sensors are not connected when value: 0x7fff
+
+Hardware to Sensor: aquaero
+#############################################
+Poweradjust1..8: fans[4..11], flow[2..9]
+aquaero5slave: fans[4..7]
+mps1..4: flow[10..13], pressure[0..3], level[0..3]
+humidity[0..3]: never available
+conductivity[0..3]: never available
+
+Hardware to Sensor: aquaduct
+#############################################
+never available:
+flow[1..13]
+fans[4..11] 
+humidity[0..3]: never available
+conductivity[1..3]
+aquastream[1..7]
+pressure[0..4]

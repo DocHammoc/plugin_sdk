@@ -1,0 +1,68 @@
+#############################################
+SDK Version 1.01 31.10.2014
+#############################################
+
+USB
+#############################################
+Verndor ID: 0x0c70
+Product ID: 0xf00a
+Inferface : ""
+Data report ID: 1
+Data report Type: Input Report
+
+Settings
+Report ID: 3
+Rreport Type: Feature
+
+SoftwareSensorReport
+Report ID: 4
+Rreport Type: Output Report
+
+SoftwareSensorShortReport
+Report ID: 7
+Rreport Type: Output Report
+
+OverrideReport
+Report ID: 5
+Rreport Type: Output Report
+
+OverrideShortReport
+Report ID: 6
+Rreport Type: Output Report
+
+OverrideColorReport
+Report ID: 8
+Rreport Type: Output Report
+
+OverrideSettingsReport
+Report ID: 9
+Rreport Type: Output Report
+
+
+at the end of each report a valid crc16 value must be added to the report.
+
+
+
+Aquabus / I2C
+#############################################
+Address: 20,21 (setup via aquasuite)
+Address type: 7Bit
+Type: slave
+Bus Speed: up to 100KHz
+
+Uart
+#############################################
+Baudrate: 38400
+Start bits: 1
+Stop bits: 1
+Parity: none
+
+Bluetooth
+#############################################
+SSP (Serial port emulation)
+Class 2
+Password lenght: 4
+
+Hints
+#############################################
+every transfer has a crc16 check (see crc_calculation.c)
