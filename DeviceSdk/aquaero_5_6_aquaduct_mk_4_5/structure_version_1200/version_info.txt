@@ -8,8 +8,8 @@ aquaduct mk5 (360, 720)
 Compatible Firmware Versions
 #############################################
 structure id: 1200
-aquaero 5,6 firmware: 2000
+aquaero 5,6 firmware: 2000, 2001
 
 structure id: 1200
-aquaduct firmware: 2000
+aquaduct firmware: 2000, 2001
 
