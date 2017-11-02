@@ -1,7 +1,7 @@
 ###########################################
 aquasuite plugin sdk
 Version 2.0 - 2017/11/02
-Compatible with: aquasuite 2014.2
+Compatible with: aquasuite 2017-3
 ###########################################
 
 General:
