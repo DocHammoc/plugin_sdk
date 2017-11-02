@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using DeviceAccess.Interop;
+using AquaComputer.DeviceAccess.Interop;
 
-namespace DeviceAccess.Devices.Farbwerk
+namespace AquaComputer.DeviceAccess.Devices.Farbwerk
 {
     /// <summary>
     /// native data mapping for farbwerk
@@ -144,6 +144,12 @@ namespace DeviceAccess.Devices.Farbwerk
             /// filter the output to prevent color jumps
             /// </summary>
             public byte output_filter;
+
+            /// <summary>
+            /// rgb power on value for external mode
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3), EndianAttribute(Endianness.BigEndian)]
+            public UInt16[] ext_rgb;
         }
         #endregion
 
@@ -294,7 +300,7 @@ namespace DeviceAccess.Devices.Farbwerk
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8), EndianAttribute(Endianness.BigEndian)]
             public Int16[] sensor;
 
-			/// <summary>
+            /// <summary>
             /// current output mode for rgb oututs
             /// output 0 = output[0..2]
             /// output 1 = output[3..5]
@@ -303,7 +309,7 @@ namespace DeviceAccess.Devices.Farbwerk
             /// </summary>
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4), EndianAttribute(Endianness.BigEndian)]
             public byte[] output_mode;
-			
+
             /// <summary>
             /// unscaled output values
             /// </summary>
@@ -493,6 +499,18 @@ namespace DeviceAccess.Devices.Farbwerk
             /// </summary>
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
             public HSVColor[] colors;
+
+            /// <summary>
+            /// rgb power on value for external mode
+            /// </summary>
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3), EndianAttribute(Endianness.BigEndian)]
+            public UInt16[] ext_rgb;
+
+            /// <summary>
+            /// flags, 0x01, save date settings in device
+            /// </summary>
+            [MarshalAs(UnmanagedType.U2), EndianAttribute(Endianness.BigEndian)]
+            public UInt16 time;
         }
         #endregion
 

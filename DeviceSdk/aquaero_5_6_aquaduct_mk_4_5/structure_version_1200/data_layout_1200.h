@@ -83,7 +83,7 @@ typedef uint8_t AlarmLevel_t;
    #define ALARM_LEVEL_ALARM        2
    #define ALARM_LEVEL_X            3
 
-   //*****************************************************************************
+//*****************************************************************************
 //* Name:
 //*   AquabusStatus
 //* Description:
@@ -91,32 +91,17 @@ typedef uint8_t AlarmLevel_t;
 //*****************************************************************************
 typedef union {
    uint32_t data;
-   struct {
-      uint32_t aquastream1 :1;   //0x0001
-      uint32_t aquastream2 :1;   //0x0002
-      
-      uint32_t poweradjust1 :1;  //0x0004
-      uint32_t poweradjust2 :1;  //0x0008
-      uint32_t poweradjust3 :1;  //0x0010
-      uint32_t poweradjust4 :1;  //0x0020
-      uint32_t poweradjust5 :1;  //0x0040
-      uint32_t poweradjust6 :1;  //0x0080
-      uint32_t poweradjust7 :1;  //0x0100
-      uint32_t poweradjust8 :1;  //0x0200
-      
-      uint32_t mps1 :1;          //0x0400
-      uint32_t mps2 :1;          //0x0800
-      uint32_t mps3 :1;          //0x1000
-      uint32_t mps4 :1;          //0x2000
-      
-      uint32_t rtc :1;           //0x4000
-      uint32_t aquaero5slave :1; //0x8000  
-      
-      uint32_t farbwerk1 :1;     //0x10000
-      uint32_t farbwerk2 :1;     //0x20000
-      
-   } Bits;
-} AquabusStatus;
+} AquabusStatus1;
+
+//*****************************************************************************
+//* Name:
+//*   AquabusStatus
+//* Description:
+//*   connected aquabus devices
+//*****************************************************************************
+typedef union {
+   uint32_t data;   
+} AquabusStatus2;
 
 //*****************************************************************************
 //* Name:
@@ -210,7 +195,7 @@ struct OutData
    struct GuiState lcdstate;        //device gui state (20bytes)
    AlarmLevel_t alarmlevel;         //current alarm level
    uint8_t actualProfile;           //current profile
-   AquabusStatus aquabus;           //aquabus devices
+   AquabusStatus1 aquabus1;           //aquabus devices
 
    uint16_t adcRAW[20];             //adc raw values range:0..0xffff
    int16_t temperatures[64];        //64 temperaturesensoren, invalid: 0x7fff
@@ -243,7 +228,35 @@ struct OutData
    int16_t rgbLed[12];              //rgb controller outputs
    int16_t setPoint[8];             //setpoint controller
    int16_t curve[4];                //curve controller
-   .
-   .
-   .
+   
+   uint16_t fanHasPwm;              //fan pwm flags, 0x01 = fan1, 0x02 = fan2,..
+   
+   uint16_t alarmTemperatureWarning; //temperature warnings
+   uint16_t alarmTemperature;        //temperature alarm
+   uint16_t alarmFanWarning;                 //fan warning
+   uint16_t alarmFan;                        //fan alarm
+   uint16_t alarmFanAmpWarning;              //fan amp temperature warning
+   uint16_t alarmFanAmp;                     //fan amp temperature alarm
+   uint16_t alarmFanOverCurrent;             //fan amp overcurrent
+   uint8_t alarmFlowWarning;               //flow warning
+   uint8_t alarmFlow;                      //flow alarm
+   uint8_t alarmPump;                      //pump alarm
+   uint8_t alarmLevelWarning;             //fill level alarm
+   uint8_t alarmLevel;                    //fill level warning
+   uint8_t alarmConductWarning;    //conductivity warning
+   uint8_t alarmConduct;           //conductivity alarm
+   uint8_t irMode;                           //infraRed Mode
+   
+   uint32_t rawFlow2;               //raw flow time
+   
+   AquabusStatus1 aquabus2;         //aquabus (device state 32..63)
+   AquabusStatus1 aquabus1_alarm;   //aquabus alarm flags
+   AquabusStatus2 aquabus2_alarm;
+   AquabusStatus1 aquabus1_buffer;  //aquabus buffered flags
+   AquabusStatus2 aquabus2_buffer;
+   
+   int16_t ui_profile;              //current loaded profile
+   int16_t ui_alarm_level;          //current alarm level
+   int16_t ui_warnings_count;       //current count of active warnings
+   int16_t ui_alarm_count;          //current count of active alarms
 };

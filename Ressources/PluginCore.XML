@@ -9,6 +9,11 @@
             Aquasuite Export Plugin Interface
             </summary>
         </member>
+        <member name="P:AquaComputer.Plugin.IDataImportPlugin.info">
+            <summary>
+            info item with plugin general informations
+            </summary>
+        </member>
         <member name="M:AquaComputer.Plugin.IDataImportPlugin.start_instance">
             <summary>
             called when the plugin is initialized
@@ -21,10 +26,20 @@
             from the host process
             </summary>
         </member>
+        <member name="P:AquaComputer.Plugin.IDataImportPlugin.unique_plugin_identifier">
+            <summary>
+            plugin identifier to identify this plugin as data source
+            </summary>
+        </member>
         <member name="M:AquaComputer.Plugin.IDataImportPlugin.worker">
             <summary>
             is called cyclic from the service before 
             new_data_available is checked and get_data is called  
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.IDataImportPlugin.new_data_available">
+            <summary>
+            indicate when new or updated data are available
             </summary>
         </member>
         <member name="M:AquaComputer.Plugin.IDataImportPlugin.get_data">
@@ -33,24 +48,14 @@
             </summary>
             <returns>List with all sensor data</returns>
         </member>
-        <member name="P:AquaComputer.Plugin.IDataImportPlugin.info">
-            <summary>
-            info item with plugin general informations
-            </summary>
-        </member>
-        <member name="P:AquaComputer.Plugin.IDataImportPlugin.unique_plugin_identifier">
-            <summary>
-            plugin identifier to identify this plugin as data source
-            </summary>
-        </member>
-        <member name="P:AquaComputer.Plugin.IDataImportPlugin.new_data_available">
-            <summary>
-            indicate when new or updated data are available
-            </summary>
-        </member>
         <member name="T:AquaComputer.Plugin.ILogDataExportPlugin">
             <summary>
             Aquasuite Export Plugin Interface
+            </summary>
+        </member>
+        <member name="P:AquaComputer.Plugin.ILogDataExportPlugin.info">
+            <summary>
+            info item with plugin general informations
             </summary>
         </member>
         <member name="M:AquaComputer.Plugin.ILogDataExportPlugin.start_instance">
@@ -78,11 +83,6 @@
             provide the new added log data
             </summary>
             <param name="data">log data items</param>
-        </member>
-        <member name="P:AquaComputer.Plugin.ILogDataExportPlugin.info">
-            <summary>
-            info item with plugin general informations
-            </summary>
         </member>
         <member name="T:AquaComputer.Plugin.LogDataSet">
             <summary>
@@ -159,6 +159,22 @@
             Is a Sensor Value
             </summary>
         </member>
+        <member name="M:AquaComputer.Plugin.SensorNode.#ctor">
+            <summary>
+            init
+            </summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.SensorGroup">
+            <summary>
+            Group with nodes
+            Contains other Groups or sensor data
+            </summary>
+        </member>
+        <member name="M:AquaComputer.Plugin.SensorGroup.#ctor">
+            <summary>
+            init
+            </summary>
+        </member>
         <member name="T:AquaComputer.Plugin.SensorNodeBase">
             <summary>
             Sensor Node
@@ -170,11 +186,110 @@
             init
             </summary>
         </member>
-        <member name="M:AquaComputer.Plugin.SensorNodeBase.GetSensors">
+        <member name="T:AquaComputer.Plugin.SensorNodeBase.TimeScale">
             <summary>
-            Return a flat list with all sensor nodes in the current tree
+            value time scale
             </summary>
-            <returns>List with all sensors</returns>
+        </member>
+        <member name="T:AquaComputer.Plugin.SensorNodeBase.Range">
+            <summary>
+            value range
+            </summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Micro">
+            <summary>10^-6 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Milli">
+            <summary>10^-3 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Cen">
+            <summary>10^1 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Dez">
+            <summary>10^2 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.None">
+            <summary>10^0 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Kilo">
+            <summary>10^3 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Mega">
+            <summary>10^6 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Giga">
+            <summary>10^9 scale</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Terra">
+            <summary>10^12 scale</summary>
+        </member>
+        <member name="T:AquaComputer.Plugin.SensorNodeBase.UnitType">
+            <summary>
+            Value unit
+            </summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Number">
+            <summary> normal number</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Temperature">
+            <summary>Temperature in °C</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.TemperatureDifference">
+            <summary>Temperature difference in °C</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Flow">
+            <summary>Flow rate in l/h</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Volume">
+            <summary>Volume in l</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Power">
+            <summary>Power in W</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Work">
+            <summary>Work in Wh</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Voltage">
+            <summary>Voltage in V</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Current">
+            <summary>Current in A</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.RotationSpeed">
+            <summary>Rotation speed in rotation per minute</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Humidity">
+            <summary>Relative Humidity in %</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Pressure">
+            <summary>Pressure in Bar</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Length">
+            <summary>Lenght in mm</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Percent">
+            <summary>Percent value</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Frequency">
+            <summary>Frequency in Hz</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Resistance">
+            <summary>Resistance in Ohm</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Force">
+            <summary>Force in N</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.State">
+            <summary>State as number</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.DataVolume">
+            <summary>Data volume in Bytes</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.DataSpeed">
+            <summary>Data speed in Bytes per second</summary>
+        </member>
+        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Timespan">
+            <summary>Timespan in seconds</summary>
         </member>
         <member name="P:AquaComputer.Plugin.SensorNodeBase.is_sensor">
             <summary>
@@ -238,126 +353,11 @@
             date and time of last update
             </summary>
         </member>
-        <member name="T:AquaComputer.Plugin.SensorNodeBase.TimeScale">
+        <member name="M:AquaComputer.Plugin.SensorNodeBase.GetSensors">
             <summary>
-            value time scale
+            Return a flat list with all sensor nodes in the current tree
             </summary>
-        </member>
-        <member name="T:AquaComputer.Plugin.SensorNodeBase.Range">
-            <summary>
-            value range
-            </summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Micro">
-            <summary>10^-6 scale</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Milli">
-            <summary>10^-3 scale</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Cen">
-            <summary>10^1 scale</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Dez">
-            <summary>10^2 scale</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.None">
-            <summary>10^0 scale</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Kilo">
-            <summary>10^3 scale</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Mega">
-            <summary>10^6 scale</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Giga">
-            <summary>10^9 scale</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.Range.Terra">
-            <summary>10^12 scale</summary>
-        </member>
-        <member name="T:AquaComputer.Plugin.SensorNodeBase.UnitType">
-            <summary>
-            Value unit
-            </summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Number">
-            <summary> normal number</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Temperature">
-            <summary>Temperature in °C</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.TemperatureDifference">
-            <summary>Temperature difference in °C</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Flow">
-            <summary>Flow rate in l/h</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Volume">
-            <summary>Volume in l</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Power">
-            <summary>Power in Wh</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Work">
-            <summary>Work in W</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Voltage">
-            <summary>Voltage in V</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Current">
-            <summary>Current in A</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.RotationSpeed">
-            <summary>Rotation speed in rotation per minute</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Humidity">
-            <summary>Relative Humidity in %</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Pressure">
-            <summary>Pressure in Bar</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Length">
-            <summary>Lenght in mm</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Percent">
-            <summary>Percent value</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Frequency">
-            <summary>Frequency in Hz</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Resistance">
-            <summary>Resistance in Ohm</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Force">
-            <summary>Force in N</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.State">
-            <summary>State as number</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.DataVolume">
-            <summary>Data volume in Bytes</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.DataSpeed">
-            <summary>Data speed in Bytes per second</summary>
-        </member>
-        <member name="F:AquaComputer.Plugin.SensorNodeBase.UnitType.Timespan">
-            <summary>Timespan in seconds</summary>
-        </member>
-        <member name="M:AquaComputer.Plugin.SensorNode.#ctor">
-            <summary>
-            init
-            </summary>
-        </member>
-        <member name="T:AquaComputer.Plugin.SensorGroup">
-            <summary>
-            Group with nodes
-            Contains other Groups or sensor data
-            </summary>
-        </member>
-        <member name="M:AquaComputer.Plugin.SensorGroup.#ctor">
-            <summary>
-            init
-            </summary>
+            <returns>List with all sensors</returns>
         </member>
     </members>
 </doc>

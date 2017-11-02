@@ -1,6 +1,6 @@
 ###########################################
 aquasuite plugin sdk
-Version 1.0 - 2014/06/05
+Version 2.0 - 2017/11/02
 Compatible with: aquasuite 2014.2
 ###########################################
 
@@ -8,10 +8,10 @@ General:
 All demos are written with C# and compatible with x86 and x64
 
 IDE:
-Visual Studio 2012 - 2013 C#
+Visual Studio 2015 - 2017 C#
 
 Plugins preferences:
-- .Net 4.0 Client Profile as Target
+- .Net 4.6.1 Profile as Target
 - dll must complied for platform "Any" (x86 and x64 compatible)
 
 Import plugins:

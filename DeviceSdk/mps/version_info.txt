@@ -4,7 +4,7 @@ mps
 
 Compatible Firmware Versions
 #############################################
-mps firmware: 1005 .. 1008
+mps firmware: 1009
 
 USB Informations
 #############################################

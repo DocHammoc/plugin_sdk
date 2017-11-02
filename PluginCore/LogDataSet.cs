@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AquaComputer.Plugin
 {
@@ -10,7 +7,7 @@ namespace AquaComputer.Plugin
     /// </summary>
     [Serializable]
     public class LogDataSet
-    {
+    {        
         public LogDataSet() { }
 
         /// <summary>

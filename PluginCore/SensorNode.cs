@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AquaComputer.Plugin
 {
@@ -114,9 +112,9 @@ namespace AquaComputer.Plugin
             Flow = 3,
             /// <summary>Volume in l</summary>
             Volume = 4,
-            /// <summary>Power in Wh</summary>
+            /// <summary>Power in W</summary>
             Power = 5,
-            /// <summary>Work in W</summary>
+            /// <summary>Work in Wh</summary>
             Work = 6,
             /// <summary>Voltage in V</summary>
             Voltage = 7,
@@ -146,6 +144,51 @@ namespace AquaComputer.Plugin
             DataSpeed = 19,
             /// <summary>Timespan in seconds</summary>
             Timespan = 20,
+
+            //forecd units
+            NONE,
+            NONE_10,
+            NONE_100,
+            RPM,
+            PERCENT,
+            FPS,
+            CURRENT_MA,
+            CURRENT_A,
+            VOLTAGE_MV,
+            VOLTAGE_V,
+            TEMPERATURE_C,
+            TEMPERATURE_F,
+            FLOW_LH,
+            FLOW_LM,
+            FLOW_GALH,
+            FLOW_GALM,
+            FREQ_HZ,
+            FREQ_KHZ,
+            FREQ_MHZ,
+            FREQ_GHZ,
+            MILLI_WATT,
+            WATT,
+            KILO_WATT,
+            MILLI_SEC,
+            SEC,
+            MINUTES,
+            HOURS,
+            DAYS,
+            BIT,
+            KBIT,
+            MBIT,
+            GBIT,
+            P_MILLIBAR,
+            P_BAR,
+            RATIO,
+            SIZE_MB,
+            SIZE_GB,
+            SIZE_TB,
+            BOOL,
+            WEIGHT_G,
+            WEIGHT_KG,
+            WEIGHT_T,
+            ANGLE_DEG,
         }
 
         /// <summary>
@@ -170,6 +213,11 @@ namespace AquaComputer.Plugin
         /// </summary>
         public int idx { get; set; }
 
+        public string identifier_path
+        {
+            get { return m_identifier + "_" + idx.ToString(); }
+        }
+
         #region identifier
         private string m_identifier = string.Empty;
 
@@ -182,8 +230,7 @@ namespace AquaComputer.Plugin
         {
             get
             {
-                string id = m_identifier + "_" + idx.ToString();
-                return id.ToLower();
+                return m_identifier;
             }
             set
             {
