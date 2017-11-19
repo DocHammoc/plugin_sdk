@@ -18,23 +18,24 @@ namespace PluginXforma59Test
     {
         // Singleton
         private static Machine _instance;
+        private Machine(List<MachineState> machineStates)
+        {
+            _machineStates = machineStates;
+        }
+
         public static Machine Instance
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new Machine();
-                }
+            get {
+                if (_instance == null) throw new ApplicationException("Call CreateInstance first.");
                 return _instance;
             }
         }
 
-        private Machine() { }
-
-        public Machine(List<MachineState> machineStates)
+        public static Machine CreateInstance(List<MachineState> machineStates)
         {
-            _machineStates = machineStates;
+            if (_instance != null) throw new ApplicationException("CreateInstance may be called only once.  Use Instance to get instance.");
+            _instance = new Machine(machineStates);
+            return _instance;
         }
 
         //public void NextState() { _currentStateIndex = (_currentStateIndex + 1) % _machineStates.Count; }

@@ -21,7 +21,7 @@ namespace PluginXforma59Test
         [SetUp]
         public void RunBeforeEachTest()
         {
-            _data = new xFormaData("test", new Machine(new List<MachineState>()
+            _data = new xFormaData("test", Machine.CreateInstance(new List<MachineState>()
             {
                 new MachineState() { CurrentDateTime = DateTime.Parse("11/12/2017 2:47:01"), CPUThreadUtilization = new double[] { 10, 20, 30, 40 } },
                 new MachineState() { CurrentDateTime = DateTime.Parse("11/12/2017 2:47:02"), CPUThreadUtilization = new double[] { 15, 25, 35, 45 } },

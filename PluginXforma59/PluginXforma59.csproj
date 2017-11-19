@@ -48,8 +48,8 @@
     <Compile Include="xFormaData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\PluginXforma59.Interface.csproj">
-      <Project>{0821B691-AA41-4B47-99EA-7C523D9F6C1F}</Project>
+    <ProjectReference Include="..\PluginXforma59.Interface\PluginXforma59.Interface.csproj">
+      <Project>{B8B0071A-DE34-4E23-8E74-8961FA0D0350}</Project>
       <Name>PluginXforma59.Interface</Name>
     </ProjectReference>
   </ItemGroup>

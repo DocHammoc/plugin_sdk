@@ -12,6 +12,15 @@ namespace PluginXforma59
     {
         // Singleton
         private static Machine _instance;
+        private Machine()
+        {
+            for (int i = 0; i < NumCPUProcessingThreads; i++)
+            {
+                _cpuCounters.Add(i, new PerformanceCounter("Processor", "% Processor Time", i.ToString()));
+                float nv = _cpuCounters[i].NextValue(); // Must call once to init counter.
+            }
+        }
+
         public static Machine Instance
         {
             get
@@ -26,14 +35,6 @@ namespace PluginXforma59
 
         Dictionary<int, PerformanceCounter> _cpuCounters = new Dictionary<int, PerformanceCounter>();
 
-        private Machine()
-        {
-            for (int i = 0; i < NumCPUProcessingThreads; i++)
-            {
-                _cpuCounters.Add(i, new PerformanceCounter("Processor", "% Processor Time", i.ToString()));
-                float nv = _cpuCounters[i].NextValue(); // Must call once to init counter.
-            }
-        }
 
         #region IMachine interface
 
