@@ -7,7 +7,9 @@ namespace AquaComputer.Plugin
     /// </summary>
     public class PluginInfo
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'PluginInfo.PluginInfo()'
         public PluginInfo() { }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'PluginInfo.PluginInfo()'
 
         /// <summary>
         /// Plugin Name (displayed in the aquasuite)

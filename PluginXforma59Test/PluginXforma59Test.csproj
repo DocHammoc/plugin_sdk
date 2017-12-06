@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Configuration.Interface, Version=1.1.2.28032, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Configuration.Interface.1.1.2.28032\lib\net461\Configuration.Interface.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.8.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -47,9 +50,12 @@
       <HintPath>..\packages\Shouldly.2.8.3\lib\net451\Shouldly.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration.cs" />
+    <Compile Include="DimmerControl.cs" />
     <Compile Include="Machine.cs" />
     <Compile Include="xFormaDataTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PluginXforma59.Interface\PluginXforma59.Interface.csproj">
-      <Project>{B8B0071A-DE34-4E23-8E74-8961FA0D0350}</Project>
+      <Project>{443c5e8e-3c6e-411f-baee-1b0a94a8bef2}</Project>
       <Name>PluginXforma59.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\PluginXforma59\PluginXforma59.csproj">

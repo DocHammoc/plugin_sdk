@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DummyData.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="PluginImportDemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

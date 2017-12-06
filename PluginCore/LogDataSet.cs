@@ -8,7 +8,9 @@ namespace AquaComputer.Plugin
     [Serializable]
     public class LogDataSet
     {        
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'LogDataSet.LogDataSet()'
         public LogDataSet() { }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'LogDataSet.LogDataSet()'
 
         /// <summary>
         /// Data set time
@@ -41,7 +43,9 @@ namespace AquaComputer.Plugin
         public string name { get; set; }
 
         //value unit
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'LogDataSet.unit'
         public string unit { get; set; }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'LogDataSet.unit'
 
         /// <summary>
         /// type of value

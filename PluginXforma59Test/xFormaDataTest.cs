@@ -23,10 +23,11 @@ namespace PluginXforma59Test
         {
             _data = new xFormaData("test", Machine.CreateInstance(new List<MachineState>()
             {
-                new MachineState() { CurrentDateTime = DateTime.Parse("11/12/2017 2:47:01"), CPUThreadUtilization = new double[] { 10, 20, 30, 40 } },
-                new MachineState() { CurrentDateTime = DateTime.Parse("11/12/2017 2:47:02"), CPUThreadUtilization = new double[] { 15, 25, 35, 45 } },
-                new MachineState() { CurrentDateTime = DateTime.Parse("11/12/2017 2:47:03"), CPUThreadUtilization = new double[] { 12, 22, 32, 42 } },
-            }));
+                new MachineState() { CurrentDateTime = DateTime.Parse("11/12/2017 2:47:01"), CPUThreadUtilizations = new double[] { 10, 20, 30, 40 } },
+                new MachineState() { CurrentDateTime = DateTime.Parse("11/12/2017 2:47:02"), CPUThreadUtilizations = new double[] { 15, 25, 35, 45 } },
+                new MachineState() { CurrentDateTime = DateTime.Parse("11/12/2017 2:47:03"), CPUThreadUtilizations = new double[] { 12, 22, 32, 42 } },
+            }),
+            Configuration.Instance());
         }
 
         [Test]

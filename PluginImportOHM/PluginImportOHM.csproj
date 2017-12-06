@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="OHM.cs" />
     <Compile Include="PluginImportOHM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

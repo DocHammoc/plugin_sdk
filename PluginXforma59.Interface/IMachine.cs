@@ -6,7 +6,10 @@ namespace PluginXforma59.Interface
     public interface IMachine
     {
         DateTime CurrentDateTime { get; }
-        int NumCPUProcessingThreads { get; }
-        Dictionary<int, double> CPUThreadUtilization { get; }
+        List<double> CPUThreadUtilizations { get; }
+        List<double> GPUUtilizations { get; }
+        List<double> FlowRates { get; }
+        List<double> FlashersPower { get; }
+        List<IDimmerControl> DimmerControls { get; }
     }
 }

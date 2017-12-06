@@ -1,4 +1,5 @@
-﻿using PluginXforma59.Interface;
+﻿using Configuration.Interface;
+using PluginXforma59.Interface;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,43 +11,79 @@ namespace PluginXforma59
 {
     public class Machine : IMachine
     {
+        IConfigurationManagerExtension _config;
+        List<PerformanceCounter> _cpuCounters = new List<PerformanceCounter>();
+
         // Singleton
         private static Machine _instance;
-        private Machine()
+        private Machine(IConfigurationManagerExtension config)
         {
-            for (int i = 0; i < NumCPUProcessingThreads; i++)
+            _config = config;
+
+            for (int i = 0; i < Environment.ProcessorCount; i++)
             {
-                _cpuCounters.Add(i, new PerformanceCounter("Processor", "% Processor Time", i.ToString()));
+                _cpuCounters.Add(new PerformanceCounter("Processor", "% Processor Time", i.ToString()));
                 float nv = _cpuCounters[i].NextValue(); // Must call once to init counter.
             }
         }
 
-        public static Machine Instance
+        public static Machine Instance(IConfigurationManagerExtension config)
         {
-            get
+            if (_instance == null)
             {
-                if (_instance == null)
-                {
-                    _instance = new Machine();
-                }
-                return _instance;
+                _instance = new Machine(config);
             }
+            return _instance;
         }
 
-        Dictionary<int, PerformanceCounter> _cpuCounters = new Dictionary<int, PerformanceCounter>();
+        public static Machine Instance()
+        {
+            if (_instance == null) throw new ArgumentNullException("config", "Please call Instance with the correct argument");
 
+            return _instance;
+        }
 
         #region IMachine interface
 
         public DateTime CurrentDateTime { get { return DateTime.Now; } }
 
-        public int NumCPUProcessingThreads { get { return Environment.ProcessorCount; } }
-
-        public Dictionary<int, double> CPUThreadUtilization
+        public List<double> CPUThreadUtilizations
         {
             get
             {
-                return _cpuCounters.ToDictionary(e => e.Key, e => (double)e.Value.NextValue());
+                return _cpuCounters.Select(c => (double)c.NextValue()).ToList();
+            }
+        }
+
+        public List<double> GPUUtilizations
+        {
+            get
+            {
+                return new List<double>() { 0.0 };
+            }
+        }
+
+        public List<double> FlowRates
+        {
+            get
+            {
+                return new List<double>() { 0.0 };
+            }
+        }
+
+        public List<double> FlashersPower
+        {
+            get
+            {
+                return new List<double>() { 0.0 };
+            }
+        }
+
+        public List<IDimmerControl> DimmerControls
+        {
+            get
+            {
+                return new List<IDimmerControl>() { new DimmerControl() };
             }
         }
 

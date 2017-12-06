@@ -1,4 +1,5 @@
 ﻿using AquaComputer.Plugin;
+using Configuration.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,15 +25,22 @@ namespace PluginXforma59
             }
         }
 
+        /// <summary>
+        /// dispose handler
+        /// </summary>
         ~PluginXforma()
         {
         }
 
+        /// <summary>
+        /// plugin info
+        /// </summary>
         public PluginInfo info
         {
             get {
                 string name = unique_plugin_identifier + " Plugin";
 
+                //init plugin informations
                 return new PluginInfo()
                 {
                     Name = name,
@@ -47,11 +55,17 @@ namespace PluginXforma59
 
         #endregion
 
+        /// <summary>
+        /// start export plugin
+        /// </summary>
         public void start_instance()
         {
-            _dataSource = new xFormaData(this.unique_plugin_identifier, Machine.Instance);
+            _dataSource = new xFormaData(this.unique_plugin_identifier, Machine.Instance(Configuration.Instance()), Configuration.Instance());
         }
 
+        /// <summary>
+        /// is called every second from the service handler
+        /// </summary>
         public void worker()
         {
             if (_dataSource == null) return;
@@ -61,6 +75,9 @@ namespace PluginXforma59
             _sensorUpdate = true;
         }
 
+        /// <summary>
+        /// trigger that indicate when new data are available
+        /// </summary>
         public bool new_data_available
         {
             get
@@ -74,11 +91,18 @@ namespace PluginXforma59
             }
         }
 
+        /// <summary>
+        /// service is call this function when new_data_available = true
+        /// </summary>
+        /// <returns>Group of sensor data, null when no data are available</returns>
         public SensorGroup get_data()
         {
             return _sensorData;
         }
 
+        /// <summary>
+        /// abort export plugin
+        /// </summary>
         public void stop_instance()
         {
             _dataSource = null;

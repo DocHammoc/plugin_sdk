@@ -11,11 +11,14 @@ namespace PluginXforma59Test
     public class MachineState
     {
         public DateTime CurrentDateTime;
-        public double[] CPUThreadUtilization = new double[Machine.Instance.NumCPUProcessingThreads];
+        public double[] CPUThreadUtilizations = new double[4];
     }
 
     public class Machine : IMachine
     {
+        private List<MachineState> _machineStates;
+        private int _currentStateIndex = -1;
+        
         // Singleton
         private static Machine _instance;
         private Machine(List<MachineState> machineStates)
@@ -47,25 +50,52 @@ namespace PluginXforma59Test
             get
             {
                 _currentStateIndex = (_currentStateIndex + 1) % _machineStates.Count; // Assume CurrentDateTime called first with each probe.
-                return _machineStates.ElementAt(_currentStateIndex).CurrentDateTime;
+                return _machineStates[_currentStateIndex].CurrentDateTime;
             }
         }
 
-        public int NumCPUProcessingThreads { get { return 4; } }
-
-        public Dictionary<int, double> CPUThreadUtilization
+        public List<double> CPUThreadUtilizations
         {
             get
             {
-                MachineState state = _machineStates.ElementAt(_currentStateIndex);
-                int i = 0;
-                return state.CPUThreadUtilization.ToDictionary(e => i++, e => e);
+                MachineState state = _machineStates[_currentStateIndex];
+                return state.CPUThreadUtilizations.ToList();
+            }
+        }
+
+        public List<double> GPUUtilizations
+        {
+            get
+            {
+                return new List<double>() { 0.0 };
+            }
+        }
+
+        public List<double> FlowRates
+        {
+            get
+            {
+                return new List<double>() { 0.0 };
+            }
+        }
+
+        public List<double> FlashersPower
+        {
+            get
+            {
+                return new List<double>() { 0.0 };
+            }
+        }
+
+        public List<IDimmerControl> DimmerControls
+        {
+            get
+            {
+                return new List<IDimmerControl>() { new DimmerControl() };
             }
         }
 
         #endregion
 
-        private List<MachineState> _machineStates;
-        private int _currentStateIndex = -1;
     }
 }

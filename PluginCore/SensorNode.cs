@@ -65,11 +65,21 @@ namespace AquaComputer.Plugin
         /// </summary>
         public enum TimeScale : int
         {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.TimeScale.None'
             None = 0,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.TimeScale.None'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.TimeScale.Millisecond'
             Millisecond = 1,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.TimeScale.Millisecond'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.TimeScale.Second'
             Second = 2,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.TimeScale.Second'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.TimeScale.Minute'
             Minute = 3,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.TimeScale.Minute'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.TimeScale.Hour'
             Hour = 4,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.TimeScale.Hour'
         }
 
         /// <summary>
@@ -146,49 +156,135 @@ namespace AquaComputer.Plugin
             Timespan = 20,
 
             //forecd units
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.NONE'
             NONE,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.NONE'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.NONE_10'
             NONE_10,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.NONE_10'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.NONE_100'
             NONE_100,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.NONE_100'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.RPM'
             RPM,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.RPM'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.PERCENT'
             PERCENT,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.PERCENT'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FPS'
             FPS,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FPS'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.CURRENT_MA'
             CURRENT_MA,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.CURRENT_MA'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.CURRENT_A'
             CURRENT_A,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.CURRENT_A'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.VOLTAGE_MV'
             VOLTAGE_MV,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.VOLTAGE_MV'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.VOLTAGE_V'
             VOLTAGE_V,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.VOLTAGE_V'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.TEMPERATURE_C'
             TEMPERATURE_C,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.TEMPERATURE_C'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.TEMPERATURE_F'
             TEMPERATURE_F,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.TEMPERATURE_F'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FLOW_LH'
             FLOW_LH,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FLOW_LH'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FLOW_LM'
             FLOW_LM,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FLOW_LM'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FLOW_GALH'
             FLOW_GALH,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FLOW_GALH'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FLOW_GALM'
             FLOW_GALM,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FLOW_GALM'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FREQ_HZ'
             FREQ_HZ,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FREQ_HZ'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FREQ_KHZ'
             FREQ_KHZ,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FREQ_KHZ'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FREQ_MHZ'
             FREQ_MHZ,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FREQ_MHZ'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FREQ_GHZ'
             FREQ_GHZ,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.FREQ_GHZ'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.MILLI_WATT'
             MILLI_WATT,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.MILLI_WATT'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.WATT'
             WATT,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.WATT'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.KILO_WATT'
             KILO_WATT,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.KILO_WATT'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.MILLI_SEC'
             MILLI_SEC,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.MILLI_SEC'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.SEC'
             SEC,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.SEC'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.MINUTES'
             MINUTES,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.MINUTES'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.HOURS'
             HOURS,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.HOURS'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.DAYS'
             DAYS,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.DAYS'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.BIT'
             BIT,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.BIT'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.KBIT'
             KBIT,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.KBIT'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.MBIT'
             MBIT,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.MBIT'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.GBIT'
             GBIT,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.GBIT'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.P_MILLIBAR'
             P_MILLIBAR,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.P_MILLIBAR'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.P_BAR'
             P_BAR,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.P_BAR'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.RATIO'
             RATIO,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.RATIO'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.SIZE_MB'
             SIZE_MB,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.SIZE_MB'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.SIZE_GB'
             SIZE_GB,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.SIZE_GB'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.SIZE_TB'
             SIZE_TB,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.SIZE_TB'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.BOOL'
             BOOL,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.BOOL'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.WEIGHT_G'
             WEIGHT_G,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.WEIGHT_G'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.WEIGHT_KG'
             WEIGHT_KG,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.WEIGHT_KG'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.WEIGHT_T'
             WEIGHT_T,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.WEIGHT_T'
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.ANGLE_DEG'
             ANGLE_DEG,
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.UnitType.ANGLE_DEG'
         }
 
         /// <summary>
@@ -213,7 +309,9 @@ namespace AquaComputer.Plugin
         /// </summary>
         public int idx { get; set; }
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.identifier_path'
         public string identifier_path
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.identifier_path'
         {
             get { return m_identifier + "_" + idx.ToString(); }
         }
@@ -305,7 +403,9 @@ namespace AquaComputer.Plugin
         #endregion
 
         #region public void Filter(UnitType f)
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.Filter(SensorNodeBase.UnitType)'
         public void Filter(UnitType f)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.Filter(SensorNodeBase.UnitType)'
         {
             List<SensorNodeBase> remove = new List<SensorNodeBase>();
             foreach (SensorNodeBase node in children)
@@ -334,7 +434,9 @@ namespace AquaComputer.Plugin
         #endregion
 
         #region public SensorNode GetSensor(string source, string Identifier)
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.GetSensor(string, string)'
         public SensorNode GetSensor(string source, string Identifier)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member 'SensorNodeBase.GetSensor(string, string)'
         {
             SensorNode result = null;
             if (source_id != source)
